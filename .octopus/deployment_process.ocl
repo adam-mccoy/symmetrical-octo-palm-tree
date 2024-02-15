@@ -37,3 +37,18 @@ step "run-a-script" {
         worker_pool_variable = ""
     }
 }
+
+step "run-a-script-env" {
+    name = "Run a Script env"
+
+    action {
+        action_type = "Octopus.Script"
+        environments = ["racial-ruby-umbrellabird", "balmy-lilac-owl", "pharmaceutical-mauve-canidae", "sizzling-lilac-jacana", "unexceptional-aqua-harrier", "quality-teal-woodchuck", "tantalizing-cobalt-jacana"]
+        properties = {
+            Octopus.Action.RunOnServer = "true"
+            Octopus.Action.Script.ScriptBody = "Write-Host \"Hello, Environment\" "
+            Octopus.Action.Script.ScriptSource = "Inline"
+            Octopus.Action.Script.Syntax = "PowerShell"
+        }
+    }
+}
