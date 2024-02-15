@@ -52,3 +52,32 @@ step "run-a-script-env" {
         }
     }
 }
+
+step "run-a-script-feed" {
+    name = "Run a Script feed"
+    properties = {
+        Octopus.Action.TargetRoles = "common"
+    }
+
+    action {
+        action_type = "Octopus.Script"
+        properties = {
+            Octopus.Action.Package.DownloadOnTentacle = "False"
+            Octopus.Action.Package.FeedId = "octopus-server-built-in"
+            Octopus.Action.Package.PackageId = "package"
+            Octopus.Action.RunOnServer = "false"
+            Octopus.Action.Script.ScriptFileName = "deploy.ps1"
+            Octopus.Action.Script.ScriptSource = "Package"
+        }
+        worker_pool_variable = ""
+
+        packages {
+            acquisition_location = "Server"
+            feed = "octopus-server-built-in"
+            package_id = "package"
+            properties = {
+                SelectionMode = "immediate"
+            }
+        }
+    }
+}
