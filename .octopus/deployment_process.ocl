@@ -16,6 +16,7 @@ step "hello-world-using-bash" {
             Octopus.Action.Script.ScriptSource = "Inline"
             Octopus.Action.Script.Syntax = "Bash"
         }
+        worker_pool = "another-pool"
     }
 }
 
