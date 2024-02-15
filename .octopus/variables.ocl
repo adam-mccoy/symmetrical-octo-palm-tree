@@ -1,0 +1,5 @@
+variable "TargetsVar" {
+    value "abcd" {
+        machine = ["common-in-au-for-barbet-in-affectionate-teal-zorro", "common-in-au-for-barbet-in-closeable-amber-malleefowl", "common-in-au-for-barbet-in-impetuous-pink-vole", "pos-aqua-ainudog-1", "pos-coral-mallard-1"]
+    }
+}
