@@ -11,3 +11,17 @@ step "run-a-script" {
         worker_pool = "hosted-ubuntu"
     }
 }
+
+step "run-another-script" {
+    name = "Run another Script"
+
+    action {
+        action_type = "Octopus.Script"
+        properties = {
+            Octopus.Action.Script.ScriptBody = "echo \"Here's another step\""
+            Octopus.Action.Script.ScriptSource = "Inline"
+            Octopus.Action.Script.Syntax = "Bash"
+        }
+        worker_pool = "hosted-ubuntu"
+    }
+}
